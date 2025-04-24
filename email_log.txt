@@ -1,133 +1,18 @@
-
-2025-04-24 11:57:05,463 - INFO - Attempting to send email to brandtconst@hotmail.com (Attempt 1/3)
-2025-04-24 11:57:09,230 - INFO - Successfully sent email to brandtconst@hotmail.com
-2025-04-24 11:57:09,231 - INFO - Email successfully sent to brandtconst@hotmail.com. Waiting before next email...
-2025-04-24 12:02:09,232 - INFO - Attempting to send email to jerad@buildsummit.com (Attempt 1/3)
-2025-04-24 12:02:12,739 - INFO - Successfully sent email to jerad@buildsummit.com
-2025-04-24 12:02:12,742 - INFO - Email successfully sent to jerad@buildsummit.com. Waiting before next email...
-2025-04-24 12:07:12,743 - INFO - Attempting to send email to berenise@riverfrontproduceco.com (Attempt 1/3)
-2025-04-24 12:07:16,005 - INFO - Successfully sent email to berenise@riverfrontproduceco.com
-2025-04-24 12:07:16,007 - INFO - Email successfully sent to berenise@riverfrontproduceco.com. Waiting before next email...
-2025-04-24 12:12:16,007 - INFO - Attempting to send email to ghkurtp@gmail.com (Attempt 1/3)
-2025-04-24 12:12:18,487 - INFO - Successfully sent email to ghkurtp@gmail.com
-2025-04-24 12:12:18,490 - INFO - Email successfully sent to ghkurtp@gmail.com. Waiting before next email...
-2025-04-24 12:17:18,491 - INFO - Attempting to send email to lwicker@ncgrowers.org (Attempt 1/3)
-2025-04-24 12:17:20,928 - INFO - Successfully sent email to lwicker@ncgrowers.org
-2025-04-24 12:17:20,930 - INFO - Email successfully sent to lwicker@ncgrowers.org. Waiting before next email...
-2025-04-24 12:22:20,931 - INFO - Attempting to send email to riverdalefarm1@gmail.com (Attempt 1/3)
-2025-04-24 12:22:23,420 - INFO - Successfully sent email to riverdalefarm1@gmail.com
-2025-04-24 12:22:23,422 - INFO - Email successfully sent to riverdalefarm1@gmail.com. Waiting before next email...
-2025-04-24 12:27:23,423 - INFO - Attempting to send email to mike@davidiansfarm.com (Attempt 1/3)
-2025-04-24 12:27:25,919 - INFO - Successfully sent email to mike@davidiansfarm.com
-2025-04-24 12:27:25,921 - INFO - Email successfully sent to mike@davidiansfarm.com. Waiting before next email...
-2025-04-24 12:32:25,922 - INFO - Attempting to send email to doublejharvesting@yahoo.com (Attempt 1/3)
-2025-04-24 12:32:28,464 - INFO - Successfully sent email to doublejharvesting@yahoo.com
-2025-04-24 12:32:28,465 - INFO - Email successfully sent to doublejharvesting@yahoo.com. Waiting before next email...
-2025-04-24 12:37:28,467 - INFO - Attempting to send email to delnorteharvesting@gmail.com (Attempt 1/3)
-2025-04-24 12:37:31,106 - INFO - Successfully sent email to delnorteharvesting@gmail.com
-2025-04-24 12:37:31,107 - INFO - Email successfully sent to delnorteharvesting@gmail.com. Waiting before next email...
-2025-04-24 12:42:31,109 - INFO - Attempting to send email to galiciafarms@comcast.net (Attempt 1/3)
-2025-04-24 12:42:33,575 - INFO - Successfully sent email to galiciafarms@comcast.net
-2025-04-24 12:42:33,576 - INFO - Email successfully sent to galiciafarms@comcast.net. Waiting before next email...
-2025-04-24 12:47:33,577 - INFO - Attempting to send email to n/a (Attempt 1/3)
-2025-04-24 12:47:35,350 - ERROR - Error sending email to n/a: {'n/a': (553, b'5.1.3 The recipient address <n/a> is not a valid RFC 5321 address. For more\n5.1.3 information, go to\n5.1.3  https://support.google.com/a/answer/3221692 and review RFC 5321\n5.1.3 specifications. ffacd0b85a97d-3a06d532976sm1516197f8f.73 - gsmtp')}
-2025-04-24 12:52:35,364 - INFO - Attempting to send email to n/a (Attempt 2/3)
-2025-04-24 12:52:37,176 - ERROR - Error sending email to n/a: {'n/a': (553, b'5.1.3 The recipient address <n/a> is not a valid RFC 5321 address. For more\n5.1.3 information, go to\n5.1.3  https://support.google.com/a/answer/3221692 and review RFC 5321\n5.1.3 specifications. 5b1f17b1804b1-4409d2c07a2sm14026445e9.39 - gsmtp')}
-2025-04-24 12:57:37,182 - INFO - Attempting to send email to n/a (Attempt 3/3)
-2025-04-24 12:57:39,025 - ERROR - Error sending email to n/a: {'n/a': (553, b'5.1.3 The recipient address <n/a> is not a valid RFC 5321 address. For more\n5.1.3 information, go to\n5.1.3  https://support.google.com/a/answer/3221692 and review RFC 5321\n5.1.3 specifications. 5b1f17b1804b1-4409d29b990sm14863135e9.4 - gsmtp')}
-2025-04-24 13:00:53,817 - INFO - Email to brandtconst@hotmail.com already sent, skipping.
-2025-04-24 13:00:53,817 - INFO - Email to jerad@buildsummit.com already sent, skipping.
-2025-04-24 13:00:53,817 - INFO - Email to berenise@riverfrontproduceco.com already sent, skipping.
-2025-04-24 13:00:53,818 - INFO - Email to ghkurtp@gmail.com already sent, skipping.
-2025-04-24 13:00:53,818 - INFO - Email to lwicker@ncgrowers.org already sent, skipping.
-2025-04-24 13:00:53,818 - INFO - Email to riverdalefarm1@gmail.com already sent, skipping.
-2025-04-24 13:00:53,818 - INFO - Email to mike@davidiansfarm.com already sent, skipping.
-2025-04-24 13:00:53,818 - INFO - Email to doublejharvesting@yahoo.com already sent, skipping.
-2025-04-24 13:00:53,818 - INFO - Email to delnorteharvesting@gmail.com already sent, skipping.
-2025-04-24 13:00:53,818 - INFO - Email to galiciafarms@comcast.net already sent, skipping.
-2025-04-24 13:00:53,818 - INFO - Attempting to send email to dave@volantefarms.com (Attempt 1/3)
-2025-04-24 13:00:56,377 - INFO - Successfully sent email to dave@volantefarms.com
-2025-04-24 13:00:56,378 - INFO - Email successfully sent to dave@volantefarms.com. Waiting before next email...
-2025-04-24 13:05:56,380 - INFO - Attempting to send email to angieradock@watercress.com (Attempt 1/3)
-2025-04-24 13:05:58,937 - INFO - Successfully sent email to angieradock@watercress.com
-2025-04-24 13:05:58,937 - INFO - Email successfully sent to angieradock@watercress.com. Waiting before next email...
-2025-04-24 13:10:58,948 - INFO - Attempting to send email to Franco1120@maslabor.com (Attempt 1/3)
-2025-04-24 13:11:01,462 - INFO - Successfully sent email to Franco1120@maslabor.com
-2025-04-24 13:11:01,462 - INFO - Email successfully sent to Franco1120@maslabor.com. Waiting before next email...
-2025-04-24 13:16:01,469 - INFO - Attempting to send email to millershoremanagement@gmail.com (Attempt 1/3)
-2025-04-24 13:16:04,160 - INFO - Successfully sent email to millershoremanagement@gmail.com
-2025-04-24 13:16:04,162 - INFO - Email successfully sent to millershoremanagement@gmail.com. Waiting before next email...
-2025-04-24 13:21:04,164 - INFO - Attempting to send email to pequenoharvestingllc@yahoo.com (Attempt 1/3)
-2025-04-24 13:21:06,696 - INFO - Successfully sent email to pequenoharvestingllc@yahoo.com
-2025-04-24 13:21:06,700 - INFO - Email successfully sent to pequenoharvestingllc@yahoo.com. Waiting before next email...
-2025-04-24 13:26:06,703 - INFO - Attempting to send email to f.madridharvesting@gmail.com (Attempt 1/3)
-2025-04-24 13:26:09,194 - INFO - Successfully sent email to f.madridharvesting@gmail.com
-2025-04-24 13:26:09,195 - INFO - Email successfully sent to f.madridharvesting@gmail.com. Waiting before next email...
-2025-04-24 13:31:09,196 - INFO - Attempting to send email to achatman@almaplt.com (Attempt 1/3)
-2025-04-24 13:31:11,731 - INFO - Successfully sent email to achatman@almaplt.com
-2025-04-24 13:31:11,735 - INFO - Email successfully sent to achatman@almaplt.com. Waiting before next email...
-2025-04-24 13:36:11,739 - INFO - Attempting to send email to ArleeBeekeeping@gmail.com (Attempt 1/3)
-2025-04-24 13:36:14,305 - INFO - Successfully sent email to ArleeBeekeeping@gmail.com
-2025-04-24 13:36:14,308 - INFO - Email successfully sent to ArleeBeekeeping@gmail.com. Waiting before next email...
-2025-04-24 13:41:14,309 - INFO - Attempting to send email to ramirobarajas@yahoo.com (Attempt 1/3)
-2025-04-24 13:41:16,808 - INFO - Successfully sent email to ramirobarajas@yahoo.com
-2025-04-24 13:41:16,808 - INFO - Email successfully sent to ramirobarajas@yahoo.com. Waiting before next email...
-2025-04-24 13:46:16,812 - INFO - Attempting to send email to heart17produce@aol.com (Attempt 1/3)
-2025-04-24 13:46:19,376 - INFO - Successfully sent email to heart17produce@aol.com
-2025-04-24 13:46:19,378 - INFO - Email successfully sent to heart17produce@aol.com. Waiting before next email...
-2025-04-24 13:51:19,380 - INFO - Email to delnorteharvesting@gmail.com already sent, skipping.
-2025-04-24 13:51:19,381 - INFO - Attempting to send email to finofarmsoffice@gmail.com (Attempt 1/3)
-2025-04-24 13:51:21,891 - INFO - Successfully sent email to finofarmsoffice@gmail.com
-2025-04-24 13:51:21,892 - INFO - Email successfully sent to finofarmsoffice@gmail.com. Waiting before next email...
-2025-04-24 13:56:21,893 - INFO - Attempting to send email to gerlofflandandcattle@gmail.com (Attempt 1/3)
-2025-04-24 13:56:24,478 - INFO - Successfully sent email to gerlofflandandcattle@gmail.com
-2025-04-24 13:56:24,479 - INFO - Email successfully sent to gerlofflandandcattle@gmail.com. Waiting before next email...
-2025-04-24 14:01:24,481 - INFO - Attempting to send email to goldenstategoats@gmail.com (Attempt 1/3)
-2025-04-24 14:01:26,983 - INFO - Successfully sent email to goldenstategoats@gmail.com
-2025-04-24 14:01:26,985 - INFO - Email successfully sent to goldenstategoats@gmail.com. Waiting before next email...
-2025-04-24 14:06:26,986 - INFO - Attempting to send email to PTGH2A@sunripecertified.com (Attempt 1/3)
-2025-04-24 14:06:29,530 - INFO - Successfully sent email to PTGH2A@sunripecertified.com
-2025-04-24 14:06:29,532 - INFO - Email successfully sent to PTGH2A@sunripecertified.com. Waiting before next email...
-2025-04-24 14:11:29,534 - INFO - Attempting to send email to floridaorangegoldllc@gmail.com (Attempt 1/3)
-2025-04-24 14:11:32,154 - INFO - Successfully sent email to floridaorangegoldllc@gmail.com
-2025-04-24 14:11:32,156 - INFO - Email successfully sent to floridaorangegoldllc@gmail.com. Waiting before next email...
-2025-04-24 14:16:32,157 - INFO - Attempting to send email to selina@agpluslabor.com (Attempt 1/3)
-2025-04-24 14:16:34,616 - INFO - Successfully sent email to selina@agpluslabor.com
-2025-04-24 14:16:34,616 - INFO - Email successfully sent to selina@agpluslabor.com. Waiting before next email...
-2025-04-24 14:21:34,618 - INFO - Attempting to send email to rkrsredangus@gmail.com (Attempt 1/3)
-2025-04-24 14:21:37,346 - INFO - Successfully sent email to rkrsredangus@gmail.com
-2025-04-24 14:21:37,347 - INFO - Email successfully sent to rkrsredangus@gmail.com. Waiting before next email...
-2025-04-24 14:26:37,349 - INFO - Attempting to send email to bfeedlot@gmail.com (Attempt 1/3)
-2025-04-24 14:26:39,936 - INFO - Successfully sent email to bfeedlot@gmail.com
-2025-04-24 14:26:39,940 - INFO - Email successfully sent to bfeedlot@gmail.com. Waiting before next email...
-2025-04-24 14:31:39,941 - INFO - Attempting to send email to pftobacco@gmail.com (Attempt 1/3)
-2025-04-24 14:31:42,376 - INFO - Successfully sent email to pftobacco@gmail.com
-2025-04-24 14:31:42,380 - INFO - Email successfully sent to pftobacco@gmail.com. Waiting before next email...
-2025-04-24 14:36:42,382 - INFO - Attempting to send email to office@tbelldetasseling.com (Attempt 1/3)
-2025-04-24 14:36:44,943 - INFO - Successfully sent email to office@tbelldetasseling.com
-2025-04-24 14:36:44,945 - INFO - Email successfully sent to office@tbelldetasseling.com. Waiting before next email...
-2025-04-24 14:41:44,947 - INFO - Attempting to send email to bjicks@colmanagement.com (Attempt 1/3)
-2025-04-24 14:41:47,534 - INFO - Successfully sent email to bjicks@colmanagement.com
-2025-04-24 14:41:47,535 - INFO - Email successfully sent to bjicks@colmanagement.com. Waiting before next email...
-2025-04-24 14:46:47,536 - INFO - Attempting to send email to cinthia.minor@sweetriverhoney.com (Attempt 1/3)
-2025-04-24 14:46:52,993 - INFO - Successfully sent email to cinthia.minor@sweetriverhoney.com
-2025-04-24 14:46:52,994 - INFO - Email successfully sent to cinthia.minor@sweetriverhoney.com. Waiting before next email...
-2025-04-24 14:51:52,996 - INFO - Attempting to send email to wroser@xcelfeedyard.com (Attempt 1/3)
-2025-04-24 14:51:57,955 - INFO - Successfully sent email to wroser@xcelfeedyard.com
-2025-04-24 14:51:57,955 - INFO - Email successfully sent to wroser@xcelfeedyard.com. Waiting before next email...
-2025-04-24 14:56:57,958 - INFO - Attempting to send email to darrellw@integrity.build (Attempt 1/3)
-2025-04-24 14:57:02,451 - INFO - Successfully sent email to darrellw@integrity.build
-2025-04-24 14:57:02,452 - INFO - Email successfully sent to darrellw@integrity.build. Waiting before next email...
-2025-04-24 15:02:02,455 - INFO - Email to jerad@buildsummit.com already sent, skipping.
-2025-04-24 15:02:02,457 - INFO - Attempting to send email to cmedrano0781@gmail.com (Attempt 1/3)
-2025-04-24 15:02:06,104 - INFO - Successfully sent email to cmedrano0781@gmail.com
-2025-04-24 15:02:06,106 - INFO - Email successfully sent to cmedrano0781@gmail.com. Waiting before next email...
-2025-04-24 15:07:06,108 - INFO - Attempting to send email to bigskyh@midrivers.com (Attempt 1/3)
-2025-04-24 15:07:08,565 - INFO - Successfully sent email to bigskyh@midrivers.com
-2025-04-24 15:07:08,566 - INFO - Email successfully sent to bigskyh@midrivers.com. Waiting before next email...
-2025-04-24 15:12:08,568 - INFO - Attempting to send email to hector@atlanticproduce.com (Attempt 1/3)
-2025-04-24 15:12:11,064 - INFO - Successfully sent email to hector@atlanticproduce.com
-2025-04-24 15:12:11,065 - INFO - Email successfully sent to hector@atlanticproduce.com. Waiting before next email...
-2025-04-24 15:17:11,067 - INFO - Attempting to send email to greg429er@yahoo.com (Attempt 1/3)
-2025-04-24 15:17:13,533 - INFO - Successfully sent email to greg429er@yahoo.com
-2025-04-24 15:17:13,535 - INFO - Email successfully sent to greg429er@yahoo.com. Waiting before next email...
+2025-04-24 21:01:27,251 - INFO - Attempting to send email to lessard9778@gmail.com (Attempt 1/3)
+2025-04-24 21:01:31,135 - INFO - Successfully sent email to lessard9778@gmail.com
+2025-04-24 21:01:31,137 - INFO - Email successfully sent to lessard9778@gmail.com. Waiting before next email...
+2025-04-24 21:06:31,139 - INFO - Attempting to send email to lsolis@wafla.org (Attempt 1/3)
+2025-04-24 21:06:33,620 - INFO - Successfully sent email to lsolis@wafla.org
+2025-04-24 21:06:33,622 - INFO - Email successfully sent to lsolis@wafla.org. Waiting before next email...
+2025-04-24 21:11:33,623 - INFO - Attempting to send email to jimdupont2020@gmail.com (Attempt 1/3)
+2025-04-24 21:11:36,274 - INFO - Successfully sent email to jimdupont2020@gmail.com
+2025-04-24 21:11:36,279 - INFO - Email successfully sent to jimdupont2020@gmail.com. Waiting before next email...
+2025-04-24 21:16:36,280 - INFO - Attempting to send email to jaymepearson@gmail.com (Attempt 1/3)
+2025-04-24 21:16:38,746 - INFO - Successfully sent email to jaymepearson@gmail.com
+2025-04-24 21:16:38,746 - INFO - Email successfully sent to jaymepearson@gmail.com. Waiting before next email...
+2025-04-24 21:21:38,770 - INFO - Attempting to send email to mark@m-mcontracting.com (Attempt 1/3)
+2025-04-24 21:21:41,358 - INFO - Successfully sent email to mark@m-mcontracting.com
+2025-04-24 21:21:41,360 - INFO - Email successfully sent to mark@m-mcontracting.com. Waiting before next email...
+2025-04-24 21:26:41,361 - INFO - Attempting to send email to h2aapp22@gmail.com (Attempt 1/3)
+2025-04-24 21:26:45,116 - INFO - Successfully sent email to h2aapp22@gmail.com
+2025-04-24 21:26:45,116 - INFO - Email successfully sent to h2aapp22@gmail.com. Waiting before next email...

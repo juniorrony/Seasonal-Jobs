@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Listings</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #4a4a4a;
+        }
+
+        .filter-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        table {
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        #jobTable_wrapper {
+            margin-top: 20px;
+        }
+
+        .btn-details {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-details:hover {
+            background-color: #0056b3;
+        }
+
+        .modal-header {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .highlight-row {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="text-center">Available Jobs ({{ job_type.upper() }})</h1>
+
+    <!-- Filters -->
+    <div class="filter-container">
+        <select id="jobTypeFilter" class="form-select">
+            <option value="">Filter by Job Type</option>
+        </select>
+        <select id="locationFilter" class="form-select">
+            <option value="">Filter by Location</option>
+        </select>
+    </div>
+
+    <!-- Job Table -->
+    <table id="jobTable" class="table table-striped">
+        <thead>
+            <tr>
+                <th>Employer Name</th>
+                <th>Job Title</th>
+                <th>Location</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Minimum Experience</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for job in jobs %}
+            <tr class="highlight-row">
+                <td>{{ job.empBusinessName }}</td>
+                <td>{{ job.jobTitle }}</td>
+                <td>{{ job.locationCity }}, {{ job.locationState }}</td>
+                <td>{{ job.startDate }}</td>
+                <td>{{ job.endDate }}</td>
+                <td>{{ job.minExperience }} months</td>
+                <td>
+                    <button class="btn-details" data-bs-toggle="modal" data-bs-target="#jobModal"
+                        onclick="showDetails(
+                            '{{ job.empBusinessName }}',
+                            '{{ job.jobTitle }}',
+                            '{{ job.locationCity }}',
+                            '{{ job.locationState }}',
+                            '{{ job.startDate }}',
+                            '{{ job.endDate }}',
+                            '{{ job.minExperience }}',
+                            '{{ job.jobDuties }}',
+                            '{{ job.contactEmail }}'
+                        )">
+                        View
+                    </button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Modal for Job Details -->
+    <div class="modal fade" id="jobModal" tabindex="-1" aria-labelledby="jobModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="jobModalLabel">Job Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Employer:</strong> <span id="modalEmployer"></span></p>
+                    <p><strong>Job Title:</strong> <span id="modalTitle"></span></p>
+                    <p><strong>Location:</strong> <span id="modalLocation"></span></p>
+                    <p><strong>Start Date:</strong> <span id="modalStartDate"></span></p>
+                    <p><strong>End Date:</strong> <span id="modalEndDate"></span></p>
+                    <p><strong>Minimum Experience:</strong> <span id="modalExperience"></span></p>
+                    <p><strong>Job Duties:</strong> <span id="modalDuties"></span></p>
+                    <p><strong>Contact Email:</strong> <a id="modalEmail" class="email-link" href="#">Send Email</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function showDetails(employer, title, locationCity, locationState, startDate, endDate, experience, duties, email) {
+            $("#modalEmployer").text(employer);
+            $("#modalTitle").text(title);
+            $("#modalLocation").text(locationCity + ', ' + locationState);
+            $("#modalStartDate").text(startDate);
+            $("#modalEndDate").text(endDate);
+            $("#modalExperience").text(experience + " months");
+            $("#modalDuties").text(duties);
+
+            if (email && email.trim() !== "") {
+                $("#modalEmail").attr("href", "mailto:" + email).text(email);
+            } else {
+                $("#modalEmail").text("Email not available");
+            }
+
+            $("#jobModal").modal("show");
+        }
+
+        $(document).ready(function () {
+            var table = $("#jobTable").DataTable({
+                paging: true,
+                searching: true,
+                ordering: true,
+                responsive: true
+            });
+
+            // Populate filters dynamically
+            var jobTypes = new Set();
+            var locations = new Set();
+
+            $("#jobTable tbody tr").each(function () {
+                var jobTitle = $(this).find("td:eq(1)").text();
+                var location = $(this).find("td:eq(2)").text();
+
+                jobTypes.add(jobTitle);
+                locations.add(location);
+            });
+
+            jobTypes.forEach(job => {
+                $("#jobTypeFilter").append(new Option(job, job));
+            });
+
+            locations.forEach(loc => {
+                $("#locationFilter").append(new Option(loc, loc));
+            });
+
+            // Apply filters
+            $("#jobTypeFilter").on("change", function () {
+                table.column(1).search(this.value).draw();
+            });
+
+            $("#locationFilter").on("change", function () {
+                table.column(2).search(this.value).draw();
+            });
+        });
+    </script>
+</body>
+</html>
