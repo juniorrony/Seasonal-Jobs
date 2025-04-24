@@ -1,90 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>H-2A Case Details</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Listings</title>
+    <!-- DataTables CSS -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
+            font-family: 'Arial', sans-serif;
             padding: 20px;
         }
 
-        h2 {
-            color: #333;
-            margin-bottom: 15px;
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #4a4a4a;
         }
 
-        #caseTable {
-            width: 100%;
-            margin-bottom: 20px;
-        }
-
-        #map {
+        table {
             margin-top: 20px;
-            height: 400px;
+        }
+
+        #jobTable_wrapper {
+            margin-top: 20px;
+        }
+
+        .btn-details {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-details:hover {
+            background-color: #0056b3;
+        }
+
+        .modal-header {
+            background-color: #007bff;
+            color: #fff;
         }
     </style>
 </head>
 <body>
-    <h2>H-2A Case Details</h2>
-    <table id="caseTable" class="display">
+    <h1>Available Job Listings</h1>
+
+    <!-- Job Table -->
+    <table id="jobTable" class="table table-striped table-bordered">
         <thead>
             <tr>
                 <th>Employer Name</th>
-                <th>Email</th>
-                <th>Phone</th>
                 <th>Job Title</th>
-                <th>Minimum Experience (Months)</th>
+                <th>Location</th>
+                <th>Minimum Experience</th>
                 <th>Start Date</th>
                 <th>End Date</th>
+                <th>Details</th>
             </tr>
         </thead>
         <tbody>
-            {% for item in data %}
+            {% for job in jobs %}
             <tr>
-                <td>{{ item.empBusinessName }}</td>
-                <td>{{ item.emppocEmail }}</td>
-                <td>{{ item.emppocPhone }}</td>
-                <td>{{ item.clearanceOrder.jobTitle }}</td>
-                <td>{{ item.clearanceOrder.jobMinexpmonths }}</td>
-                <td>{{ item.clearanceOrder.jobBeginDate }}</td>
-                <td>{{ item.clearanceOrder.jobEndDate }}</td>
+                <td>{{ job.empBusinessName }}</td>
+                <td>{{ job.clearanceOrder.jobTitle }}</td>
+                <td>{{ job.clearanceOrder.jobCity }}, {{ job.clearanceOrder.jobState }}</td>
+                <td>{{ job.clearanceOrder.jobMinexpmonths }} months</td>
+                <td>{{ job.clearanceOrder.jobBeginDate }}</td>
+                <td>{{ job.clearanceOrder.jobEndDate }}</td>
+                <td>
+                    <button
+                        class="btn-details"
+                        data-bs-toggle="modal"
+                        data-bs-target="#jobModal"
+                        onclick="showDetails({
+                            employer: '{{ job.empBusinessName }}',
+                            title: '{{ job.clearanceOrder.jobTitle }}',
+                            location: '{{ job.clearanceOrder.jobCity }}, {{ job.clearanceOrder.jobState }}',
+                            experience: '{{ job.clearanceOrder.jobMinexpmonths }} months',
+                            startDate: '{{ job.clearanceOrder.jobBeginDate }}',
+                            endDate: '{{ job.clearanceOrder.jobEndDate }}'
+                        })"
+                    >
+                        View
+                    </button>
+                </td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
 
-    <h2>Job Locations Map</h2>
-    <div id="map"></div>
+    <!-- Modal for Job Details -->
+    <div class="modal fade" id="jobModal" tabindex="-1" aria-labelledby="jobModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="jobModalLabel">Job Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Employer:</strong> <span id="modalEmployer"></span></p>
+                    <p><strong>Job Title:</strong> <span id="modalTitle"></span></p>
+                    <p><strong>Location:</strong> <span id="modalLocation"></span></p>
+                    <p><strong>Minimum Experience:</strong> <span id="modalExperience"></span></p>
+                    <p><strong>Start Date:</strong> <span id="modalStartDate"></span></p>
+                    <p><strong>End Date:</strong> <span id="modalEndDate"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- DataTables JS -->
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Initialize DataTable
         $(document).ready(function () {
-            $('#caseTable').DataTable();
+            // Initialize DataTable
+            $("#jobTable").DataTable();
         });
 
-        // Initialize Leaflet Map
-        const map = L.map('map').setView([44.5, -93.0], 6); // Center of Minnesota
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 18,
-        }).addTo(map);
-
-        // Add Job Locations to the Map
-        fetch("/case.json")
-            .then(response => response.json())
-            .then(data => {
-                data.forEach(item => {
-                    const jobPopup = `<b>${item.empBusinessName}</b><br>${item.clearanceOrder.jobCity}, ${item.clearanceOrder.jobState}`;
-                    L.marker([44.5, -93.0]) // Placeholder coordinates
-                        .addTo(map)
-                        .bindPopup(jobPopup);
-                });
-            });
+        // Function to display job details in the modal
+        function showDetails(job) {
+            $("#modalEmployer").text(job.employer);
+            $("#modalTitle").text(job.title);
+            $("#modalLocation").text(job.location);
+            $("#modalExperience").text(job.experience);
+            $("#modalStartDate").text(job.startDate);
+            $("#modalEndDate").text(job.endDate);
+        }
     </script>
 </body>
 </html>

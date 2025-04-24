@@ -9,7 +9,7 @@ with open("case.json", "r", encoding="utf-8") as file:
 
 @app.route("/")
 def index():
-    return render_template("index.html", data=data)
+    return render_template("index.html", jobs=data)
 
 if __name__ == "__main__":
     app.run(debug=True)
