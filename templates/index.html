@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>H-2A Case Details</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        #caseTable {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        #map {
+            margin-top: 20px;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <h2>H-2A Case Details</h2>
+    <table id="caseTable" class="display">
+        <thead>
+            <tr>
+                <th>Employer Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Job Title</th>
+                <th>Minimum Experience (Months)</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in data %}
+            <tr>
+                <td>{{ item.empBusinessName }}</td>
+                <td>{{ item.emppocEmail }}</td>
+                <td>{{ item.emppocPhone }}</td>
+                <td>{{ item.clearanceOrder.jobTitle }}</td>
+                <td>{{ item.clearanceOrder.jobMinexpmonths }}</td>
+                <td>{{ item.clearanceOrder.jobBeginDate }}</td>
+                <td>{{ item.clearanceOrder.jobEndDate }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Job Locations Map</h2>
+    <div id="map"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Initialize DataTable
+        $(document).ready(function () {
+            $('#caseTable').DataTable();
+        });
+
+        // Initialize Leaflet Map
+        const map = L.map('map').setView([44.5, -93.0], 6); // Center of Minnesota
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 18,
+        }).addTo(map);
+
+        // Add Job Locations to the Map
+        fetch("/case.json")
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(item => {
+                    const jobPopup = `<b>${item.empBusinessName}</b><br>${item.clearanceOrder.jobCity}, ${item.clearanceOrder.jobState}`;
+                    L.marker([44.5, -93.0]) // Placeholder coordinates
+                        .addTo(map)
+                        .bindPopup(jobPopup);
+                });
+            });
+    </script>
+</body>
+</html>
